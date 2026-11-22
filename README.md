@@ -1,44 +1,40 @@
-# Autoregressive AR(p) Models – Time Series Analysis in R
+# Autoregressive AR(p) Models
 
-University project in **Business Mathematics** at **HTW Berlin**, by **Meryl Tchuinkeu**.
+How past values of a time series influence today's value.
 
-The project asks how past values of a time series influence its present value. It covers the definition, the mathematical representation and the main theoretical properties of autoregressive models.
+By Meryl Tchuinkeu. The material is written in German.
 
-> 🚧 **Work in progress.** The project materials are written in German.
+## What is it for?
 
-## The AR(p) model
+Many numbers change over time: sales, prices, temperatures. Often today's value depends on the values from the days or months before. An autoregressive model describes exactly this dependence, and it is a common starting point for forecasts.
 
-In an autoregressive model of order *p*, the current value depends on its own *p* previous values plus a random error:
+In an AR(p) model, today's value is a weighted sum of the last *p* values plus a random error:
 
 $$X_t = c + \varphi_1 X_{t-1} + \varphi_2 X_{t-2} + \dots + \varphi_p X_{t-p} + \varepsilon_t$$
 
 | Symbol | Meaning |
 |---|---|
-| $X_t$ | current value |
-| $p$ | number of past values used (model order) |
-| $\varphi_i$ | influence of the past value $X_{t-i}$ |
-| $\varepsilon_t$ | random error (white noise) |
+| $X_t$ | today's value |
+| $p$ | how many past values the model uses |
+| $\varphi_i$ | how strongly the value from *i* steps ago matters |
+| $\varepsilon_t$ | random error |
 
-Example: an **AR(1)** model uses exactly one past value.
+An AR(1) model, for example, uses only yesterday's value.
 
-## What the project covers
+## What I looked at
 
-- **Backshift operator**: compact notation for lagged values, $B X_t = X_{t-1}$
-- **Stationarity**: constant mean and variance, with covariances that depend only on the lag. For AR(1) the condition is $|\varphi_1| < 1$.
-- **Causality**: representing the process through current and past random errors
-- **ACF and PACF**: describing temporal dependence and identifying the model order *p*. The PACF cuts off after lag *p*.
-- **Interpretation**: what the model order means, and where AR models reach their limits
+1. **A short way to write the model** with the backshift operator ($B X_t = X_{t-1}$).
+2. **Stationarity**: when the series stays stable over time, with a constant mean and variance. For AR(1) this holds when $|\varphi_1| < 1$.
+3. **Causality**: writing the series as a sum of current and past random errors.
+4. **Choosing p**: using the autocorrelation function (ACF) and the partial autocorrelation function (PACF). For an AR(p) model, the PACF drops to zero after lag *p*.
+5. **Limits of AR models**: what they can and cannot describe.
 
-## Repository contents
+## Files
 
-| File | Description |
+| File | Content |
 |---|---|
-| `Autoregressive_ARp_Kurzvortrag.pptx` | Short presentation (in German): idea, theory and goals of the project |
+| `AR_Modelle.pptx` | Presentation of the model and the results (German) |
 
 ## Tools
 
-R · Time series analysis · Statistics
-
-## Author
-
-Meryl Tchuinkeu – B.Sc. Business Mathematics, HTW Berlin
+R
